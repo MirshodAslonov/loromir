@@ -11,36 +11,27 @@
   
                   <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Log in</p>
   
-                  <form class="mx-1 mx-md-4" action="{{ route('welcome')}}">
-  
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <input type="email" id="form3Example3c" class="form-control" />
-                        <label class="form-label" for="form3Example3c">Your Email</label>
-                      </div>
+                  <form  method="post" action="{{ route('login')}}">
+                    @csrf                    
+                    <div class="mb-3">
+                      <input type="text" class="form-control"   name="email"  placeholder="Your email" value="{{ old('email') }}" required>
+                   </div>
+                   @error('email')
+                    <p class="help-block text-danger">{{ $message }}</p>
+                   @enderror
+                   <div class="mb-3">
+                     <input type="text" class="form-control"   name="password" placeholder="Password" value="{{ old('password') }}" required>
                     </div>
-  
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <input type="password" id="form3Example4c" class="form-control" />
-                        <label class="form-label" for="form3Example4c">Password</label>
-                      </div>
-                    </div>
-                        <ul>
-                         <a href="{{route('signUp')}}"><button type="button" class="btn btn-primary btn-lg"><- sign up</button></a>
-                         <button type="button" class="btn btn-success btn-lg">Log in</button>
-                        </ul>
+                    @error('password')
+                     <p class="help-block text-danger">{{ $message }}</p>
+                    @enderror
+                   <button type="submit" class="btn btn-outline-success "> Log in </button>
+                    <a href="{{route('signIn')}}"><button type="button" class="btn btn-outline-warning ">sign in -></button></a>
                 </form>
-  
-  
                 </div>
                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-  
                   <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
                     class="img-fluid" alt="Sample image">
-  
                 </div>
               </div>
             </div>

@@ -5,7 +5,7 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-lg-between">
 
-      <h1 class="logo me-auto me-lg-0"><a href="index.html">L<span>.</span>Mir</a></h1>
+      <h1 class="logo me-auto me-lg-0"><a href="">L<span>.</span>Mir</a></h1>
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
@@ -15,9 +15,10 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-     <ul>
-         <a href="{{route('signUp')}}" class="get-started-btn scrollto">Get Started</a>
-     </ul>
+      <ul>
+        <button type="button" class="btn btn-outline-warning">{{Auth::User()->name}}</button>
+          <a href="{{route('logout')}}" class="btn btn-outline-warning">log out</a>
+      </ul>
     </div>
   </header><!-- End Header -->
 
@@ -35,27 +36,29 @@
         <div class="col-xl-2 col-md-4">
           <div class="icon-box">
             <i class="ri-store-line"></i>
-            <h3><a href="">Mathematics</a></h3>
-          </div>
+            <h3><a href="{{route('listPage',1)}}">Mathematics</a></h3>
+          </div>  
         </div>
         <div class="col-xl-2 col-md-4">
           <div class="icon-box">
             <i class="ri-bar-chart-box-line"></i>
-            <h3><a href="">Physics</a></h3>
+            <h3><a href="{{route('listPage',2)}}">Physics</a></h3>
           </div>
         </div>
         <div class="col-xl-2 col-md-4">
           <div class="icon-box">
             <i class="ri-calendar-todo-line"></i>
-            <h3><a href="">English</a></h3>
+            <h3><a href="{{route('listPage',3)}}">English</a></h3>
           </div>
         </div>
-        <div class="col-xl-2 col-md-4">
-          <div class="icon-box">
-            <i class="ri-database-2-line"></i>
-            <h3><a href="">Logic</a></h3>
+          @if(auth()->user()->email=='admin@gmail.com')
+          <div class="col-xl-2 col-md-4">
+            <div class="icon-box">
+              <i class="bi bi-journal-plus"></i>
+              <h3><a href="{{route('createPage')}}">Create</a></h3>
+            </div>
           </div>
-        </div>
+         @endif  
       </div>
 
     </div>
@@ -76,21 +79,21 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="">PHP programming language </a></h4>
+              <h4><a href="{{route('listPage',4)}}">PHP programming language </a></h4>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">C++  programming language</a></h4>
+              <h4><a href="{{route('listPage',5)}}">C++  programming language</a></h4>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4><a href="">Object Oriented Programming</a></h4>
+              <h4><a href="{{route('listPage',6)}}">Object Oriented Programming</a></h4>
             </div>
           </div>
 

@@ -1,25 +1,36 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProjectController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', function () {  return view('login.login');  })->name('loginn');
+Route::get('signIn', function () { return view('login.signIn'); })->name('signIn');
 
-Route::get('/signUp', function () {
-    return view('login.signUp');
-})->name('signUp');
+Route::post('login', [AuthController::class, 'login'])->name('login');
+Route::post('register',[AuthController::class,'register'])->name('register');
 
-Route::get('/login', function () {
-    return view('login.login');
-})->name('login');
+Route::group(['middleware' => ["auth:web"]], function () {
+    Route::group(['prefix' => 'page'], function () {
+        Route::get('create',[ProjectController::class,'createPage'])->name('createPage')->middleware('isAdmin:web');
+        Route::get('list/{id}',[ProjectController::class,'listPage'])->name('listPage');
+    }); 
+    
+    Route::post('create',[ProjectController::class,'create'])->name('create')->middleware('isAdmin:web');
+    Route::post('come/{id}/{im}',[ProjectController::class,'come'])->name('come');
+    Route::get('welcome', function () { return view('layouts.welcome'); })->name('welcome');
+    
+
+ 
+
+
+
+
+
+
+
+
+
+
+    Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+ });
