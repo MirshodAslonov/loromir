@@ -16,8 +16,9 @@ Route::group(['middleware' => ["auth:web"]], function () {
         Route::get('list/{id}',[ProjectController::class,'listPage'])->name('listPage');
     }); 
     
+    Route::get('list/{id}',[ProjectController::class,'list'])->name('list');
     Route::post('create',[ProjectController::class,'create'])->name('create')->middleware('isAdmin:web');
-    Route::post('come/{id}/{im}',[ProjectController::class,'come'])->name('come');
+    Route::post('answer/{id}',[ProjectController::class,'answer'])->name('answer');
     Route::get('welcome', function () { return view('layouts.welcome'); })->name('welcome');
     
 

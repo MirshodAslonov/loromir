@@ -20,10 +20,10 @@
                       </select>
                       </div>                   
                       <div class="mb-3">
-                        <input type="text" class="form-control"   name="a"  placeholder="Answer  A" value="{{ old('a') }}" required>
+                        <input type="text" class="form-control"   name="a"  placeholder="Answer" value="{{ old('a') }}" required>
                     </div>
                     <div class="mb-3">
-                      <input type="text" class="form-control"   name="b"  placeholder="Answer  B" value="{{ old('b') }}" required>
+                      <input type="text" class="form-control"   name="b"  placeholder="Variant " value="{{ old('b') }}" required>
                     </div>
                     <div class="d-grid gap-2">
                        <a href="{{route('welcome')}}"><button  class="btn btn-outline-secondary " type="button"><-Home </button></a>
@@ -34,10 +34,10 @@
                       <input type="file" class="form-control" name="image" required>
                     </div>
                     <div class="mb-3">
-                      <input type="text" class="form-control"   name="c"  placeholder="Answer  C" value="{{ old('c') }}" required>
+                      <input type="text" class="form-control"   name="c"  placeholder="Variant" value="{{ old('c') }}" required>
                     </div>
                     <div class="mb-3">
-                      <input type="text" class="form-control"   name="d"  placeholder="Answer  D" value="{{ old('d') }}" required>
+                      <input type="text" class="form-control"   name="d"  placeholder="Variant" value="{{ old('d') }}" required>
                     </div>
                     <div class="d-grid gap-2">
                       <button class="btn btn-outline-success " type="submit">Save </button>
