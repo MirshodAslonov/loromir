@@ -20,8 +20,8 @@ return new class extends Migration
             ->references('id')
             ->on('subjects')
             ->onDelete('cascade');
-            $table->unsignedBigInteger('question_id');
-            $table->foreign('question_id')
+            $table->unsignedBigInteger('project_id');
+            $table->foreign('project_id')
             ->references('id')
             ->on('projects')
             ->onDelete('cascade');

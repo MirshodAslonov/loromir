@@ -16,25 +16,6 @@ class ProjectController extends Controller
          'subjects'=>$subjects
         ]);
      }  
-
-    public function listPage($id) {
-        $list = Subject::where('id',$id)->with('projects')->first();
-        return view('subject.list',[
-            'list'=>$list,
-        ]);
-    }
-    
-    public function answer($id, Request $request){
-        $list = Subject::where('id',$id)->with('projects')->first();
-        $count=1;
-        $ball=0;
-        foreach($list->projects as $project){
-            if($project->a==$request->input($count++)){
-            $ball+=1;
-            }
-        }
-        return $ball;
-    }
     
     public function create(CreateRequest $request){
         $project = new Project ();

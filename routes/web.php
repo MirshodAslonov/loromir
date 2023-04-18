@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\ProjectController;
 
 Route::get('/', function () {  return view('login.login');  })->name('loginn');
@@ -13,12 +14,12 @@ Route::post('register',[AuthController::class,'register'])->name('register');
 Route::group(['middleware' => ["auth:web"]], function () {
     Route::group(['prefix' => 'page'], function () {
         Route::get('create',[ProjectController::class,'createPage'])->name('createPage')->middleware('isAdmin:web');
-        Route::get('list/{id}',[ProjectController::class,'listPage'])->name('listPage');
+        Route::get('list/{id}',[AnswerController::class,'listPage'])->name('listPage');
     }); 
     
-    Route::get('list/{id}',[ProjectController::class,'list'])->name('list');
+    Route::post('answer',[AnswerController::class,'answer'])->name('answer');
+    Route::get('come/{id}',[AnswerController::class,'come'])->name('come');
     Route::post('create',[ProjectController::class,'create'])->name('create')->middleware('isAdmin:web');
-    Route::post('answer/{id}',[ProjectController::class,'answer'])->name('answer');
     Route::get('welcome', function () { return view('layouts.welcome'); })->name('welcome');
     
 
