@@ -16,30 +16,6 @@ class AnswerController extends Controller
 {
     public  $count;
     
-    public function list(ListRequest $request) {
-        $subject = Subject::where('id',$request['subject_id'])->with('projects')->first();
-        $result = Answer::where('project_id',$request['project_id'])->first();
-        $count = $this->count($subject->projects()->get());
-        $results = $this->results($request['subject_id']);
-            if($request['project_id'] == null){
-                $project=$subject->projects()->first();
-            }else{
-                $project=$this->project($request['project_id']);
-            }
-        return view('subject.list',[
-            'subject'=>$subject,
-            'project' => $project,
-            'count' => $count,
-            'results' => $results,
-            'result' => $result
-        ]);
-    }
-    
-    private function project($id){
-        $project = Project::where('id',$id)->first();
-        return $project;  
-    }
-    
     public function answer(AnswerRequest $request){
         $answer = Answer::where('project_id',$request['project_id'])->first();
         if($answer == null)
@@ -51,21 +27,6 @@ class AnswerController extends Controller
         $answer->answer_real = $request['answer_real'];
         $answer->save();
         return redirect()->back();   
-    }
-    
-    private function count($projects){
-        $a=1;
-        foreach($projects as $project){
-            $this->count[$a++]=$project->id;
-        }
-        if($this->count==null) $this->count[1]=0;
-        return $this->count;
-    }
-    
-    public function results($id){
-        $where = [['subject_id',$id],['user_id', Auth::user()->id]];
-        $results = Answer::where($where)->get();
-        return $results;
     }
 
     public function result(ResultRequest $request){
@@ -85,6 +46,22 @@ class AnswerController extends Controller
             'count'=>$count
         ]); 
     }
+    
+    public function count($projects){
+        $a=1;
+        foreach($projects as $project){
+            $this->count[$a++]=$project->id;
+        }
+        if($this->count==null) $this->count[1]=0;
+        return $this->count;
+    }
+    
+    public function results($id){
+        $where = [['subject_id',$id],['user_id', Auth::user()->id]];
+        $results = Answer::where($where)->get();
+        return $results;
+    }
+
     
     public function score(ScoreRequest $request) {
         return view('subject.score',[ 

@@ -25,15 +25,15 @@
                         @endif
                     @endforeach
                     @if($check==0 && $con!=$project->id)
-                        <a href="{{route('list',['subject_id'=>$subject->id,'project_id'=>$con])}}"><button type="button" class="btn btn-outline-secondary">{{$a++}}</button></a>
+                        <a href="{{route('list',['subject_id'=>$subject->id,'project_id'=>$con ])}}"><button type="button" class="btn btn-outline-secondary">{{$a++}}</button></a>
                     @elseif($con==$project->id) 
-                        <a href="{{route('list',['subject_id'=>$subject->id,'project_id'=>$con])}}"><button type="button" class="btn btn-secondary">{{$a++}}</button></a>
+                        <a href="{{route('list',['subject_id'=>$subject->id,'project_id'=>$con ])}}"><button type="button" class="btn btn-secondary">{{$a++}}</button></a>
                     @else
-                        <a href="{{route('list',['subject_id'=>$subject->id,'project_id'=>$con])}}"><button type="button" class="btn btn-success">{{$a++}}</button></a>
+                        <a href="{{route('list',['subject_id'=>$subject->id,'project_id'=>$con ])}}"><button type="button" class="btn btn-success">{{$a++}}</button></a>
                     @endif
                     <input type="hidden"  {{$check=0}}>
                 @else
-                        <a href="{{route('list',['subject_id'=>$subject->id,'project_id'=>$con])}}"><button type="button" class="btn btn-outline-secondary">{{$a++}}</button></a>
+                        <a href="{{route('list',['subject_id'=>$subject->id,'project_id'=>$con ])}}"><button type="button" class="btn btn-outline-secondary">{{$a++}}</button></a>
                 @endif
             @endforeach
             </div>
