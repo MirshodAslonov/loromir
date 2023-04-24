@@ -15,7 +15,7 @@ class ProjectController extends Controller
         return view('subject.create',[
          'subjects'=>$subjects
         ]);
-     }  
+     }   
     
     public function create(CreateRequest $request){
         $project = new Project ();
@@ -35,15 +35,11 @@ class ProjectController extends Controller
         }catch (QueryException $e){
             return response()->json(['error'=>['message'=>$e->getMessage(),'code'=>4551515]],400);
         }
-}
-
-
-
-
-
-
-
-
-
+    } 
     
+    public function delete($id) {
+        $project = Project::where('id',$id)->first();
+        $project->delete();
+        return redirect()->back();
+     } 
 }

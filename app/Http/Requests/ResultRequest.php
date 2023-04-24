@@ -5,20 +5,13 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 
-class CreateRequest extends FormRequest
+class ResultRequest extends FormRequest
 {
-    public function authorize()
-    {
-        return true;
-    }
-
     public function rules()
     {
         return [
-            'a'=>'required|string',
-            'b'=>'required|string',
-            'c'=>'required|string',
-            'd'=>'required|string',
+            'id' => 'required|exists:subjects,id',
+            'count' => 'required',
         ];
     }
     protected function failedValidation(Validator $validator)

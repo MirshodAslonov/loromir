@@ -1,6 +1,8 @@
 
 @extends('layouts.app')
 @section('content')
+<div class="container" data-aos="fade-up">
+  <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-lg-12 col-xl-11">
@@ -49,6 +51,8 @@
           </div>
         </div>
       </div>
+    </div>
+    </div>
     </div>
   
   @endsection

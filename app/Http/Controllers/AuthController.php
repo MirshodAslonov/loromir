@@ -12,7 +12,7 @@ use Illuminate\Database\QueryException;
 
 class AuthController extends Controller
 {
-    public function auth($email,$password){
+    private function auth($email,$password){
         $credentials =[
             'email'=>$email,
             'password'=>$password

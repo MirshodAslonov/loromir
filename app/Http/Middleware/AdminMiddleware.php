@@ -13,7 +13,7 @@ class AdminMiddleware
         if(Auth::user()->email == 'admin@gmail.com'){
             return $next($request);
     }else{
-        return response()->json(['errors' => 'You are not Admin'], 401);
+        return abort(404);
     } 
     }
 }
