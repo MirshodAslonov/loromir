@@ -49,7 +49,7 @@
                 <div class="card-body p-md-5">
             <div class="row justify-content-center">
                 <div class="col-md-10 col-lg-6 col-xl-5 d-flex align-items-center order-1 order-lg-2">
-                    <img  src="{{asset('storage/images/questions/'.$project->question)}}" class="img-fluid" alt="Sample image">
+                    <img  src="{{asset('storagepublic/images/questions/'.$project->question)}}" class="img-fluid" alt="Sample image">
                 </div>
                 <div class="col-md-10 col-lg-6 col-xl-5 order-1 order-lg-2">
                         @csrf   
