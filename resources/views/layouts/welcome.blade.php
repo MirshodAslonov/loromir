@@ -167,7 +167,7 @@
               <div class="member-img">
                 <img src="assets/img/team/team-9.jpg" class="img-fluid" alt="">
                 <div class="social">
-                  <a href="https://xn--80affa3aj0al.xn--80asehdb/#@dont_stop_m"><i class="bi bi-telegram"></i></a>
+                  <a href="https://t.me/dont_stop_m"><i class="bi bi-telegram"></i></a>
                   <a href="https://www.facebook.com/mirshoodaslonov/"><i class="bi bi-facebook"></i></a>
                   <a href="https://www.instagram.com/mirshood_/"><i class="bi bi-instagram"></i></a>
                   <a href="https://www.linkedin.com/in/mirshodaslonov/"><i class="bi bi-linkedin"></i></a>
@@ -254,7 +254,7 @@
                 <a href="https://www.facebook.com/mirshoodaslonov/" class="facebook"><i class="bx bxl-facebook"></i></a>
                 <a href="https://www.instagram.com/mirshood_/" class="instagram"><i class="bx bxl-instagram"></i></a>
                 <a href="https://www.linkedin.com/in/mirshodaslonov/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                <a href="https://xn--80affa3aj0al.xn--80asehdb/#@dont_stop_m" class="telegram"><i class="bx bxl-telegram"></i></a>
+                <a href="https://t.me/dont_stop_m" class="telegram"><i class="bx bxl-telegram"></i></a>
               </div>
             </div>
       </div>
@@ -266,7 +266,7 @@
       </div>
       <div class="credits">
       
-        Maked by <a href="https://xn--80affa3aj0al.xn--80asehdb/#@mirshod_asloonov">Mirshod Aslonov</a>
+        Maked by <a href="https://t.me/dont_stop_m">Mirshod Aslonov</a>
       </div>
     </div>
   </footer><!-- End Footer -->
