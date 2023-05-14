@@ -11,8 +11,8 @@
             </div>
             @if($project!=null)
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <p  id="countdown-timer" style="color: rgba(3, 140, 81, 0.73)" class=" h4 fw-bold mb-1 mx-1 mx-md-1 mt-1"></p>
-                <button type="button" class="btn btn-secondary" onclick="start()">Start</button>
+                    {{-- <p  id="countdown-timer" style="color: rgba(3, 140, 81, 0.73)" class=" h4 fw-bold mb-1 mx-1 mx-md-1 mt-1"></p>
+                    <button type="button" class="btn btn-secondary" onclick="start()">Start</button> --}}
                 <a href="{{route('result',['id'=>$subject->id,'count'=>$count])}}"><button type="button" class="btn btn-danger">Finish the test</button></a> 
             </div>
             <div class="m-3"></div>
