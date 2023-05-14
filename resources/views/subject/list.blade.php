@@ -1,7 +1,7 @@
 
 @extends('layouts.app')
 @section('content')
-
+<script src="{{ asset('assets/js/myscript.js') }}"></script>
 <form  method="post" action="{{ route('answer',$subject->id)}}">
 <div class="container">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -10,8 +10,10 @@
                <p class="text-center h1 fw-bold mb-1 mx-1 mx-md-4 mt-4">{{$subject->name}}</p>
             </div>
             @if($project!=null)
-            <div class=" gap-2 d-md-flex justify-md-end">
-                <a href="{{route('result',['id'=>$subject->id,'count'=>$count])}}"><button type="button" class="btn btn-warning">Finish</button></a>   
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <p  id="countdown-timer" style="color: rgba(3, 140, 81, 0.73)" class=" h4 fw-bold mb-1 mx-1 mx-md-1 mt-1"></p>
+                <button type="button" class="btn btn-secondary" onclick="start()">Start</button>
+                <a href="{{route('result',['id'=>$subject->id,'count'=>$count])}}"><button type="button" class="btn btn-danger">Finish the test</button></a> 
             </div>
             <div class="m-3"></div>
             <div class="btn-group me-2 mb-3" role="group" aria-label="First group">
@@ -33,7 +35,7 @@
                     @endif
                     <input type="hidden"  {{$check=0}}>
                 @else
-                        <a href="{{route('list',['subject_id'=>$subject->id,'project_id'=>$con ])}}"><button type="button" class="btn btn-outline-secondary">{{$a++}}</button></a>
+                        <a href="{{route('list',['subject_id'=>$subject->id,'project_id'=>$con ])}}"><button type="button" class="btn btn-outline-secondary" >{{$a++}}</button></a>
                 @endif
             @endforeach
             </div>
@@ -47,18 +49,20 @@
                 <div class="card-body p-md-5">
             <div class="row justify-content-center">
                 <div class="col-md-10 col-lg-6 col-xl-5 d-flex align-items-center order-1 order-lg-2">
-                    <img  src="{{asset('/storage/images/questions/'.$project->question)}}" class="img-fluid" alt="Sample image">
+                    <img  src="{{asset('storage/images/questions/'.$project->question)}}" class="img-fluid" alt="Sample image">
                 </div>
                 <div class="col-md-10 col-lg-6 col-xl-5 order-1 order-lg-2">
                         @csrf   
                         <?php $answers = [$project->a, $project->b, $project->c, $project->d];
                         shuffle($answers);
                         ?>
+                        <?php $b=1?>
                         @foreach($answers as $answer)
                             <div class="d-grid gap-2 mb-3" >
-                                <input type="radio" class="btn-check" name="answer_come" id={{$answer}} value="{{$answer}}"  @if($result!=null){{ $result->answer_come == $answer ? "checked" : '' }} @endif required>
-                                <label class="btn btn-outline-success" for={{$answer}}>{{$answer}}</label>
+                                <input type="radio" class="btn-check" name="answer_come" id={{$b}} value="{{$answer}}"  @if($result!=null){{ $result->answer_come == $answer ? "checked" : '' }} @endif required>
+                                <label class="btn btn-outline-success" for={{$b}}>{{$answer}}</label>
                             </div>
+                        <?php $b++?>
                         @endforeach
                     </div>
                 </div>

@@ -15,7 +15,7 @@ class ProjectController extends AnswerController
     
     public function list(ListRequest $request) {
         $subject = Subject::where('id',$request['subject_id'])->with('projects')->first();
-        $projects = $subject->projects()->get();
+        $projects = $subject->projects()->take(10)->get();
         $count = $this->count($projects);
         $result = Answer::where('project_id',$request['project_id'])->first();
         $results = $this->results($request['subject_id']);
@@ -63,6 +63,6 @@ class ProjectController extends AnswerController
     public function delete($id) {
         $project = Project::where('id',$id)->first();
         $project->delete();
-        return redirect()->back();
+        return redirect()->route('welcome');
      } 
 }

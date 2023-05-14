@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-lg-between">
@@ -11,13 +10,13 @@
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#counts">About</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li><a class="nav-link scrollto" href="#footer">Contact</a></li>
+           <li><a class="nav-link scrollto" href="#footer">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
       <ul>
         <button type="button" class="btn btn-outline-warning">{{Auth::User()->name}}</button>
-          <a href="{{route('logout')}}" class="btn btn-outline-warning">log out</a>
+          <a href="{{route('logout')}}"  class="btn btn-outline-warning">log out</a>
       </ul>
     </div>
   </header><!-- End Header -->
@@ -93,7 +92,7 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4><a href="{{route('list',['subject_id' => 6])}}">Object Oriented Programming</a></h4>
+              <h4 ><a href="{{route('list',['subject_id' => 6])}}">Object Oriented Programming</a></h4>
             </div>
           </div>
 

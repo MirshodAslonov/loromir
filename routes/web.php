@@ -23,16 +23,5 @@ Route::group(['middleware' => ["auth:web"]], function () {
     Route::get('score',[AnswerController::class,'score'])->name('score');
     
 
- 
-
-
-
-
-
-
-
-
-
-
     Route::get('/logout',[AuthController::class,'logout'])->name('logout');
  });
